@@ -7,7 +7,20 @@
         @vite('resources/js/app.js')
     </head>
     <body>
-        <h1 class="text-center">Ciao da vite</h1>
-        {{-- <img src="{{ Vite::asset('resources/img/') }}" alt=""> --}}
+        <div class="row p-3 g-3 row-cols-2">
+            @foreach ($movies as $movie)
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header text-bg-primary">Title: {{ $movie->title}}</div>
+                    <div class="card-body text-bg-light">
+                      <h5 class="card-title">Original title: {{ $movie->original_title}}</h5>
+                      <p class="card-text">Nationality: {{ $movie->nationality}}</p>
+                      <p class="card-text">Vote: {{ $movie->vote}}</p>
+                    </div>
+                    <div class="card-footer text-bg-secondary">Date: {{ $movie->date}}</div>
+                </div>
+            </div>                
+            @endforeach
+        </div>
     </body>
 </html>
